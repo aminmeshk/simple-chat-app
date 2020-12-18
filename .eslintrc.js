@@ -7,7 +7,15 @@ module.exports = {
     'prettier/react',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {},
+    },
+  },
+  plugins: ['@typescript-eslint', 'import'],
   rules: {
     'no-unused-vars': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
