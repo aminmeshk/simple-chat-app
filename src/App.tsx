@@ -12,14 +12,18 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { RootStackScreen } from 'components/navigations/AppNavigator';
+import { Provider } from 'react-redux';
+import { store } from 'store';
 
 interface Props {}
 
 const App: React.FC<Props> = () => {
   return (
-    <NavigationContainer>
-      <RootStackScreen />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <RootStackScreen />
+      </NavigationContainer>
+    </Provider>
   );
 };
 

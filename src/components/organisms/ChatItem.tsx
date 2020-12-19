@@ -1,6 +1,6 @@
 import React from 'react';
 import { Message } from 'models';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { ChatBox } from 'components/molecules';
 
 interface Props {
