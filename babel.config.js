@@ -13,7 +13,7 @@ module.exports = {
           '@molecules': './src/components/molecules',
           '@organisms': './src/components/organisms',
           '@navigations': './src/navigations',
-          '@scenes': './src/scenes',
+          '@screens': './src/screens',
           '@services': './src/services',
           '@styles': './src/styles',
           '@utils': './src/utils',
