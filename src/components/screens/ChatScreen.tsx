@@ -7,11 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store';
 import { loadUserList } from 'store/user/actions';
 import { loadDefaultMessages, sendMessage } from 'store/message/actions';
+import { Colors } from 'components/styles';
 
 interface Props {}
 
 const ChatScreen: React.FC<Props> = () => {
-  // const [chatMessages, setChatMessages] = useState<Message[]>(messages);
   const userList = useSelector((state: RootState) => state.user.users);
   const myUser = useSelector((state: RootState) => state.user.currentUser);
   const chatMessages = useSelector(
@@ -58,7 +58,7 @@ const ChatScreen: React.FC<Props> = () => {
   ) {
     return (
       <View style={styles.screen}>
-        <ActivityIndicator size="large" color="indigo" />
+        <ActivityIndicator size="large" color={Colors.PRIMARY} />
       </View>
     );
   }
@@ -82,7 +82,7 @@ const ChatScreen: React.FC<Props> = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: '#eee',
+    backgroundColor: Colors.BACKGROUND,
   },
   flatList: {},
 });

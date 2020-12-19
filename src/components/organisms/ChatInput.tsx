@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
-import { Image, StyleSheet, TextInput, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { SendButton } from 'components/atoms';
+import { Colors } from 'components/styles';
+import React, { useCallback, useState } from 'react';
+import { StyleSheet, TextInput, View } from 'react-native';
 
 interface Props {
   onSend: (content: string) => void;
 }
 
 const ChatInput: React.FC<Props> = (props) => {
+  const { onSend } = props;
   const [text, setText] = useState('');
   const [inputFocused, setInputFocused] = useState(false);
+
+  const onSendButtonPress = useCallback(() => {
+    onSend(text);
+    setText('');
+  }, [text, onSend]);
+
   return (
     <View style={styles.container}>
       <TextInput
@@ -20,18 +28,7 @@ const ChatInput: React.FC<Props> = (props) => {
         onFocus={() => setInputFocused(true)}
         onBlur={() => setInputFocused(false)}
       />
-      <TouchableOpacity
-        style={styles.sendButton}
-        containerStyle={styles.sendButtonContainer}
-        onPress={() => {
-          props.onSend(text);
-          setText('');
-        }}>
-        <Image
-          source={require('../../assets/images/direct.png')}
-          style={styles.sendImage}
-        />
-      </TouchableOpacity>
+      <SendButton onPress={onSendButtonPress} />
     </View>
   );
 };
@@ -51,20 +48,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   textInputFocused: {
-    borderColor: 'indigo',
+    borderColor: Colors.PRIMARY,
     borderWidth: 1,
-  },
-  sendImage: {
-    width: 28,
-    height: 28,
-  },
-  sendButton: {
-    paddingHorizontal: 6,
-    paddingTop: 8,
-    paddingBottom: 12,
-  },
-  sendButtonContainer: {
-    alignSelf: 'flex-end',
   },
 });
 

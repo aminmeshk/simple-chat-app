@@ -30,8 +30,6 @@ const styles = StyleSheet.create({
   },
   containerSent: {
     flexDirection: 'row-reverse',
-    // marginStart: 12,
-    // marginEnd: 12,
   },
   image: {
     alignSelf: 'flex-end',
